@@ -1,7 +1,22 @@
-setupGrid(4);
+setupGrid(16);
 function setupGrid(gridSize) {
-  // Make gridSize x gridSize grid
+  // Calculate minimum dimension of viewport
+  const minDimension = Math.min(window.innerWidth, window.innerHeight);
+
+  // Set width and height of gridContainer to be equal
   const gridContainer = document.querySelector('.gridContainer');
+  gridContainer.style.width = `${minDimension/2}px`;
+  gridContainer.style.height = `${minDimension/2}px`;
+  // Make it a square
+  gridContainer.style['aspect-ratio'] = `1 / 1`;
+
+  // Center the gridContainer
+  gridContainer.style.position = 'absolute';
+  gridContainer.style.top = '50%';
+  gridContainer.style.left = '50%';
+  gridContainer.style.transform = 'translate(-50%, -50%)';
+
+  // Make gridSize x gridSize grid
   for (let i = 0; i < gridSize; i++) {
     // Make a row
     const rowDiv = document.createElement('div');
