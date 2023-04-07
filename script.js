@@ -1,38 +1,25 @@
-setupGrid(16);
+setupGrid(4);
 function setupGrid(gridSize) {
+  // Make gridSize x gridSize grid
   const gridContainer = document.querySelector('.gridContainer');
-  
-  for(let i = 0; i < gridSize; i++){
-
-    const div = document.createElement('div');
-    console.log('gridContainer=' + gridContainer);
-    console.log(div);
-    div.style.color = 'blue';                                      
-    // adds the indicated style rule
-    
-    div.style.cssText = 'color: blue; background: white;';          
-    // adds several style rules
-    
-    div.setAttribute('style', 'color: blue; background: white;');  
-    
-    div.textContent = 'Hello World!';
-    // adds several style rules
-    gridContainer.appendChild(div);
-    
+  for (let i = 0; i < gridSize; i++) {
+    // Make a row
+    const rowDiv = document.createElement('div');
+    rowDiv.classList.add('row');
+    rowDiv.style['display'] = 'flex';
+    for (let j = 0; j < gridSize; j++) {
+      // Make a square
+      const square = document.createElement('div');
+      square.classList.add('square');
+      square.style['flex'] = '1 1 auto';
+      square.style['background'] = 'red';
+      square.style.color = 'aqua';
+      square.textContent = 'x';
+      square.style['text-align'] = 'center';
+      // Add square to row
+      rowDiv.appendChild(square);
+    }
+    // Add row to grid
+    gridContainer.appendChild(rowDiv);
   }
-
-//   const div = document.createElement('div');
-//   console.log('gridContainer=' + gridContainer);
-//   console.log(div);
-//   div.style.color = 'blue';                                      
-//   // adds the indicated style rule
-  
-//   div.style.cssText = 'color: blue; background: white;';          
-//   // adds several style rules
-  
-//   div.setAttribute('style', 'color: blue; background: white;');  
-  
-//   div.textContent = 'Hello World!';
-//   // adds several style rules
-//   gridContainer.appendChild(div);
 }

@@ -1,0 +1,9 @@
+.container{
+    display: flex;
+    background-color: blue;
+}
+
+.item{
+    background-color: aqua;
+    flex: 1;
+}
